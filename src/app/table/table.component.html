@@ -1,0 +1,51 @@
+<img src="/assets/images/LOGO_SAGEMCOM_RVB.png" alt="Image" class="corner-image">
+
+<app-file-upload></app-file-upload>
+<div *ngIf="auth" class="search-container">
+  <label for="searchInput" class="search-label">Search for Equipment:</label>
+  <input type="text" id="searchInput" [(ngModel)]="searchTerm" placeholder="Search" (input)="applyFilter()" />
+</div>
+
+<table class="custom-table">
+  <thead>
+    <tr>
+     
+      <th>Manufacturer</th>
+      <th>Part Number</th>
+      <th>Scom Serial Number</th>
+      <th>Pallet Number</th>
+      <th>Software Version</th>
+      <th>Hardware Version</th>
+      <th>ACS Username</th>
+      <th>ACS Password</th>
+      <th>Remote GUI Password</th>
+      <th>Lan MAC Address</th>
+      <th>WiFi SSID</th>
+      <th>WiFi Password</th>
+      <th>ONT Serial Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let equipment of filteredEquipments">
+      
+      <td>{{ equipment.MANUFACTURER }}</td>
+      <td>{{ equipment.PART_NUMBER }}</td>
+      <td>{{ equipment.SCOM_SERIAL_NUMBER }}</td>
+      <td>{{ equipment.PALLET_NUMBER }}</td>
+      <td>{{ equipment.SOFTWARE_VERSION }}</td>
+      <td>{{ equipment.HARDWARE_VERSION }}</td>
+      <td>{{ equipment.acsuserName }}</td>
+      <td>{{ equipment.ACS_Password }}</td>
+      <td>{{ equipment.REMOTE_GUI_PASSWORD }}</td>
+      <td>{{ equipment.LAN_MAC_ADRESS }}</td>
+      <td>{{ equipment.WIFI_SSID }}</td>
+      <td>{{ equipment.WIFI_PASSWORD }}</td>
+      <td>{{ equipment.ONT_SERIAL_NUMBER }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!auth">
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>

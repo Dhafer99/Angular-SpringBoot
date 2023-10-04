@@ -1,0 +1,11 @@
+<div class="button-container">
+    <div class="file-input-container">
+      <label for="fileInput" class="fileLabel">Choose File</label>
+      <input type="file" id="fileInput" (change)="onFileSelected($event)" />
+      <span id="fileName" class="file-name">{{ selectedFileName }}</span>
+    </div>
+    <div class="upload-button-container">
+      <button class="uploadButton" (click)="uploadFile()">Upload</button>
+    </div>
+  </div>
+  

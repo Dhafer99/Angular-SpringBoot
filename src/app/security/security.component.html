@@ -1,0 +1,82 @@
+
+
+
+
+  <div class="container">
+    
+<div class="logo">
+  <!-- Your logo image or content goes here -->
+  <img src="/assets/images/LOGO_SAGEMCOM_RVB.png" alt="Logo">
+</div>
+
+
+
+   <div class="login-form-container" *ngIf="!isAuthenticated">
+    <div id="login-head">
+         <h1>Log In</h1>
+    </div>
+  <div id="login-details">
+    <form action="" >
+         
+         <div id="user">
+    <input type="text" name="name" placeholder="Username" [(ngModel)]="authRequest.userName">
+    </div>
+    
+    <div id="pass">
+    <input type="password" name="password" placeholder="Password" [(ngModel)]="authRequest.password">
+    </div>
+  
+    <div id="submit">
+    <input type="submit" value="Log In" (click)="getAccessToken()">
+         </div>
+    </form>
+    <div *ngIf="!isAuthenticated">
+      <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage }}</p>
+      </div>
+    
+      <div *ngIf="response" class="response-container">
+        <p>Response: {{ response }}</p>
+      </div>
+    </div>
+  
+  </div>
+  </div>
+
+
+
+
+<div id="login-form" *ngIf="isAuthenticated">
+<div id="submit">
+  <input (click)="logout()" value="Logout" type="submit">
+  
+</div>
+
+</div>
+
+
+
+<!-- app.component.html -->
+<!-- <div *ngIf="!isAuthenticated" class="auth-container">
+    <label for="username">Username:</label>
+    <input type="text" id="username" [(ngModel)]="authRequest.userName" />
+  
+    <label for="password">Password:</label>
+    <input type="password" id="password" [(ngModel)]="authRequest.password" /> -->
+  
+    <!-- Use the click event to trigger the authentication process -->
+    <!-- <button (click)="getAccessToken()">Login</button>
+  </div> -->
+  
+  <!-- Display the welcome message if isAuthenticated is true -->
+  <!-- <div *ngIf="isAuthenticated">
+    <h2>Welcome!</h2>
+
+
+   <button (click)="logout()">Logout</button>
+</div> -->
+  
+  <!-- Hide the error message and response container when isAuthenticated is true -->
+ 
+</div>
+
